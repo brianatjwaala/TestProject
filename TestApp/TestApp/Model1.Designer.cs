@@ -63,10 +63,177 @@ namespace TestApp
     
         #endregion
     
+        #region ObjectSet Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Entity1> Entity1
+        {
+            get
+            {
+                if ((_Entity1 == null))
+                {
+                    _Entity1 = base.CreateObjectSet<Entity1>("Entity1");
+                }
+                return _Entity1;
+            }
+        }
+        private ObjectSet<Entity1> _Entity1;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Entity2> Entity2
+        {
+            get
+            {
+                if ((_Entity2 == null))
+                {
+                    _Entity2 = base.CreateObjectSet<Entity2>("Entity2");
+                }
+                return _Entity2;
+            }
+        }
+        private ObjectSet<Entity2> _Entity2;
+
+        #endregion
+        #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Entity1 EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEntity1(Entity1 entity1)
+        {
+            base.AddObject("Entity1", entity1);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Entity2 EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEntity2(Entity2 entity2)
+        {
+            base.AddObject("Entity2", entity2);
+        }
+
+        #endregion
     }
     
 
     #endregion
     
+    #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Entity1")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Entity1 : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Entity1 object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        public static Entity1 CreateEntity1(global::System.Int32 id)
+        {
+            Entity1 entity1 = new Entity1();
+            entity1.Id = id;
+            return entity1;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Entity2")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Entity2 : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Entity2 object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        public static Entity2 CreateEntity2(global::System.Int32 id)
+        {
+            Entity2 entity2 = new Entity2();
+            entity2.Id = id;
+            return entity2;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+
+        #endregion
+    
+    }
+
+    #endregion
     
 }
